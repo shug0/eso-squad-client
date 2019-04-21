@@ -22,7 +22,7 @@ class GroupCard extends Component {
     const bgStyles = this.getHeaderStyles(bgPath)
 
     return (
-      <article className='Card GroupCard'>
+      <article className='Card GroupCard Appear'>
         <header className='GroupCard__header' style={bgStyles} >
           <div className='GroupCard__header__filter'>
             <h3 className='GroupCard__header__players'>

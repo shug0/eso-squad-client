@@ -18,7 +18,7 @@ class StartPage extends Component {
         <h2 className='StartPage__slogan'>
           Your realtime LFG, LFM tool
         </h2>
-        <div className='StartPage__wrapper Card'>
+        <div className='StartPage__wrapper Card Appear'>
           <UserForm handleSubmit={this.handleSubmit} />
         </div>
       </section>

@@ -43,6 +43,10 @@ export const SearchBarStyles = {
   menuList: base => ({
     ...base,
     paddding: 0
+  }),
+  placeholder: base => ({
+    ...base,
+    paddingLeft: '0.3rem'
   })
 }
 
