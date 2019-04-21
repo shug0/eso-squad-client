@@ -8,8 +8,11 @@
 
 .Row {
   display: flex;
-  & > *:not(:first-child) {
-    margin-left: 1rem;
+  & > * {
+    flex: 1;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
   }
 }
 
@@ -61,16 +64,15 @@
 }
 
 .InputWrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .Label {
   display: block;
   font-weight: 700;
   color: $textMedium;
-  letter-spacing: 1px;
   padding-bottom: 0.5rem;
-  font-family: "Rubik", sans-serif;
+  font-family: $fontRubik;
   text-transform: uppercase;
 }
 

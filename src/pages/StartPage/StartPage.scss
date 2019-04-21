@@ -1,7 +1,7 @@
 @import "../../assets/var";
 
 .StartPage {
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
 
   &__title {
@@ -13,7 +13,7 @@
   }
 
   &__slogan {
-    font-family: "Open Sans", sans-serif;
+    font-family: $fontOpen;
     color: white;
     font-size: 1.2rem;
     font-weight: 300;

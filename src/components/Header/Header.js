@@ -6,21 +6,26 @@ import { Link } from 'react-router-dom'
 class Header extends Component {
   render () {
     const { user } = this.props
+    const { pseudo, role, region, platform, cp } = user
 
     return (
       <header className='Header'>
-        <h1 className='Header__title'>ESO Squad</h1>
-        <aside className='Header__infos'>
-          <span className='Header__infos__detail'><strong>@</strong>{user.pseudo}</span>
-          <span className='Header__infos__detail'>Role <strong>{user.role}</strong></span>
-          <span className='Header__infos__detail'>CP <strong>{user.cp}</strong></span>
-        </aside>
-
-        <div className='Header__settings'>
-          <Link to='/setup'>
-            <SettingsIcon />
-          </Link>
+        <div>
+          <h1 className='Header__title'>ESO Squad</h1>
+          <h2 className='Header__slogan'>Your LFG, LFM live tool</h2>
         </div>
+        <aside className='Header__infos'>
+          <span className='Header__infos__detail'><strong>@</strong>{pseudo}</span>
+          <span className='Header__infos__detail'><strong>{platform}</strong> - {region}</span>
+          <span className='Header__infos__detail'>Role <strong>{role}</strong></span>
+          <span className='Header__infos__detail'>CP <strong>{cp}</strong></span>
+
+          <div className='Header__infos__settings'>
+            <Link to='/setup'>
+              <SettingsIcon />
+            </Link>
+          </div>
+        </aside>
       </header>
     )
   }

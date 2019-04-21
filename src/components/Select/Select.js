@@ -4,7 +4,6 @@ import {
   ClassicSelectTheme
 } from '../SearchInput/SearchStyles'
 import ReactSelect from 'react-select'
-import { ROLES_INPUT } from '../../constants/constants'
 
 class Select extends Component {
   render () {
@@ -16,7 +15,7 @@ class Select extends Component {
         options={options}
         isSearchable={false}
         placeholder={field.placeholder}
-        value={ROLES_INPUT.find(item => item.value === field.value)}
+        value={options.find(item => item.value === field.value)}
         onChange={option => form.setFieldValue(field.name, option.value)}
         styles={ClassicSelectStyles}
         theme={ClassicSelectTheme}

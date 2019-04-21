@@ -16,7 +16,7 @@ class SearchInput extends Component {
         <ReactSelect
           options={dungeonsOptions}
           isMulti
-          placeholder='Select dungeon(s), trial(s)..'
+          placeholder='Select the dungeon(s), trial(s) you are looking for..'
           noOptionsMessage={() => 'No results'}
           styles={SearchBarStyles}
           theme={ClassicSelectTheme}

@@ -1,48 +1,54 @@
+@import "../../assets/var";
+
 .Header {
   color: white;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   &__title {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
+    padding-bottom: 0.5rem;
+  }
+
+  &__slogan {
+    font-family: $fontOpen;
+    font-weight: 300;
   }
 
   &__infos {
     margin-left: auto;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+
     &__detail {
       &:not(:first-child):before {
         content: "";
-        height: 0.4rem;
-        width: 0.4rem;
+        height: 0.3rem;
+        width: 0.3rem;
         display: inline-block;
         border-radius: 50%;
         background: white;
-        margin: 0 1rem;
+        margin: 0 0.7rem 0.1rem;
+      }
+    }
+
+    &__settings {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      svg { transition: transform ease-out 0.2s; }
+      a { color: white; }
+      &:hover {
+        svg {
+          transform: rotate(90deg);
+        }
       }
     }
   }
 
-  &__settings {
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    margin-left: 1rem;
-    cursor: pointer;
 
-    svg {
-      transition: transform ease-out 0.2s;
-    }
-
-    a {
-      color: white;
-    }
-
-    &:hover {
-      svg {
-        transform: rotate(90deg);
-      }
-    }
-  }
 }

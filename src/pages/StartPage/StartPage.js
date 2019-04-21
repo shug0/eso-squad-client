@@ -16,7 +16,7 @@ class StartPage extends Component {
       <section className='StartPage'>
         <h1 className='StartPage__title'>ESO Squad</h1>
         <h2 className='StartPage__slogan'>
-          Find players for your next trial, dungeon !
+          Your realtime LFG, LFM tool
         </h2>
         <div className='StartPage__wrapper Card'>
           <UserForm handleSubmit={this.handleSubmit} />
