@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import StartPage from './pages/StartPage/StartPage'
 import HomePage from './pages/HomePage/HomePage'
+import NewGroupPage from './pages/NewGroupPage/NewGroupPage'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { userFormValidationSchema } from './forms/schemas'
 import { getCookieUser } from './helpers/user'
@@ -19,10 +20,15 @@ class App extends Component {
             exact
             path='/'
             render={() =>
-              !this.checkUserCookies() ? <Redirect to='/setup' /> : <HomePage user={getCookieUser()} />
+              !this.checkUserCookies() ? (
+                <Redirect to='/setup' />
+              ) : (
+                <HomePage />
+              )
             }
           />
           <Route path='/setup' component={StartPage} />
+          <Route path='/new' component={NewGroupPage} />
         </main>
       </Router>
     )

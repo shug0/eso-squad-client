@@ -5,11 +5,17 @@
   display: flex;
   justify-content: space-between;
 
+  &__link {
+    color: white;
+    text-decoration: none;
+  }
+
   &__title {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 0.5rem;
+    display: block;
   }
 
   &__slogan {
@@ -49,6 +55,10 @@
       }
     }
   }
+}
 
-
+@media screen and (max-width: 650px) {
+  .Header__infos__detail {
+    display: none;
+  }
 }

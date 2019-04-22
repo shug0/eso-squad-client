@@ -2,17 +2,20 @@ import React, { Component } from 'react'
 import { SettingsIcon } from '../Icons'
 import './Header.scss'
 import { Link } from 'react-router-dom'
+import { getCookieUser } from '../../helpers/user'
 
 class Header extends Component {
   render () {
-    const { user } = this.props
+    const user = getCookieUser()
     const { pseudo, role, region, platform, cp } = user
 
     return (
       <header className='Header'>
         <div>
-          <h1 className='Header__title'>ESO Squad</h1>
-          <h2 className='Header__slogan'>Your LFG, LFM live tool</h2>
+          <Link className='Header__link' to='/'>
+            <h1 className='Header__title'>ESO Squad</h1>
+            <h2 className='Header__slogan'>Your LFG, LFM live tool</h2>
+          </Link>
         </div>
         <aside className='Header__infos'>
           <span className='Header__infos__detail'><strong>@</strong>{pseudo}</span>

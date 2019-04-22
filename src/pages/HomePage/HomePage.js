@@ -5,11 +5,9 @@ import GroupsList from '../../components/GroupsList/GroupsList'
 
 class HomePage extends PureComponent {
   render () {
-    const { user } = this.props
-
     return (
       <>
-        <Header user={user} />
+        <Header />
         <SearchInput />
         <GroupsList />
       </>

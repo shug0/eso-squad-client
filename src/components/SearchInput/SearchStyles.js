@@ -46,7 +46,11 @@ export const SearchBarStyles = {
   }),
   placeholder: base => ({
     ...base,
-    paddingLeft: '0.3rem'
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    width: '95%',
+    padding: '3px 0 3px 0.3rem',
+    textOverflow: 'ellipsis'
   })
 }
 
