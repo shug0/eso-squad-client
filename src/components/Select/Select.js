@@ -7,7 +7,7 @@ import ReactSelect from 'react-select'
 
 class Select extends Component {
   render () {
-    const { options, field, form } = this.props
+    const { options, field, form, ...props } = this.props
 
     return (
       <ReactSelect
@@ -19,6 +19,7 @@ class Select extends Component {
         onChange={option => form.setFieldValue(field.name, option.value)}
         styles={ClassicSelectStyles}
         theme={ClassicSelectTheme}
+        {...props}
       />
     )
   }

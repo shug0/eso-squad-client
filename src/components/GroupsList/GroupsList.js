@@ -21,11 +21,11 @@ class GroupsList extends Component {
     return (
       <section className='GroupList'>
         <header className='GroupList__header'>
-          <h4 className='GroupList__header__title'>
+          <h3 className='Title'>
             Hot Groups
-          </h4>
+          </h3>
 
-          <Link className='GroupList__header__button Button Button--isSmall' to='/new'>
+          <Link className='Button Button--isSmall' to='/new'>
             New Group
           </Link>
         </header>

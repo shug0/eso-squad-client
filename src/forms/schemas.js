@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { ROLES } from '../constants/constants'
+import {PLATFORM, REGIONS, ROLES} from '../constants/constants'
 
 export const userFormValidationSchema = Yup.object().shape({
   pseudo: Yup.string()
@@ -14,5 +14,23 @@ export const userFormValidationSchema = Yup.object().shape({
     .max(50),
   role: Yup.string()
     .oneOf(ROLES)
-    .required('Choose a role please')
+    .required('Choose a role please'),
+  platform: Yup.string()
+    .oneOf(PLATFORM)
+    .required('Select your platform'),
+  region: Yup.string()
+    .oneOf(REGIONS)
+    .required('Select your region')
+})
+
+export const newGroupFormValidationSchema = Yup.object().shape({
+  host: Yup.string()
+    .required()
+    .max(40, '🤔'),
+  platform: Yup.string()
+    .oneOf(PLATFORM)
+    .required('Select your platform'),
+  region: Yup.string()
+    .oneOf(REGIONS)
+    .required('Select your region')
 })

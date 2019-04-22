@@ -1,0 +1,14 @@
+@import "../../assets/var";
+
+.NewGroupPage {
+  margin-top: 5rem;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__content {
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+}

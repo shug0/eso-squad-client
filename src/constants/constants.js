@@ -1,3 +1,10 @@
+import dungeonsData from './data/events.json'
+
+export const EVENTS_OPTIONS = dungeonsData.map(dungeon => ({
+  label: dungeon.name,
+  value: dungeon.id
+}))
+
 export const ROLE_DD = 'DD'
 export const ROLE_TANK = 'TANK'
 export const ROLE_HEAL = 'HEAL'
