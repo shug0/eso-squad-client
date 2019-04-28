@@ -61,16 +61,15 @@
   padding: 2px 10px;
   font-weight: 300;
   background: $textLight;
-  border: 2px solid transparent;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color: transparent;
   &:focus,
   &:active {
-    border: 2px solid $primary;
-  }
-  &::placeholder {
-    color: red;
+    border-color: $primary;
   }
   &.error {
-    border: 2px solid $error !important;
+    border-color:  $error;
   }
   &:disabled {
     background: $textMedium;

@@ -4,7 +4,6 @@ import Effect from '../forms/Effect'
 import { newGroupFormValidationSchema } from './schemas'
 import events from '../constants/data/eventsMap'
 import Select from '../components/Select/Select'
-import cs from 'classnames'
 import {
   EVENTS_OPTIONS,
   PLATFORM_INPUT,
@@ -14,6 +13,7 @@ import {
   ROLE_TANK_NUM, ROLE_HEAL_NUM
 } from '../constants/constants'
 import { getCookieUser } from '../helpers/user'
+import Input from '../components/Input/Input'
 
 class NewGroupForm extends Component {
   getInitialValue = () => {
@@ -49,7 +49,7 @@ class NewGroupForm extends Component {
         validationSchema={newGroupFormValidationSchema}
         onSubmit={this.props.handleSubmit}
         enableReinitialize
-        render={({ handleSubmit, errors }) => {
+        render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit}>
               <Effect onChange={({ values: currentValues }, { values: nextValues }) => {
@@ -62,10 +62,9 @@ class NewGroupForm extends Component {
                   Host
                 </label>
                 <Field
-                  className={cs('Input', { error: errors['pseudo'] })}
-                  type='text'
                   id='host'
                   name='host'
+                  component={Input}
                   disabled
                 />
               </div>
@@ -116,10 +115,10 @@ class NewGroupForm extends Component {
                     № TANK
                   </label>
                   <Field
-                    className={cs('Input', { error: errors['tank_number'] })}
                     type='number'
                     id='tank_number'
                     name='tank_number'
+                    component={Input}
                   />
                 </span>
 
@@ -128,10 +127,10 @@ class NewGroupForm extends Component {
                     № HEAL
                   </label>
                   <Field
-                    className={cs('Input', { error: errors['heal_number'] })}
                     type='number'
                     id='heal_number'
                     name='heal_number'
+                    component={Input}
                   />
                 </span>
 
@@ -140,10 +139,10 @@ class NewGroupForm extends Component {
                     № DD
                   </label>
                   <Field
-                    className={cs('Input', { error: errors['dd_number'] })}
                     type='number'
                     id='dd_number'
                     name='dd_number'
+                    component={Input}
                   />
                 </span>
               </div>

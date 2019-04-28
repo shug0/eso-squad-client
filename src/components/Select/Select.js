@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {
-  ClassicSelectStyles,
-  ClassicSelectTheme
-} from '../SearchInput/SearchStyles'
 import ReactSelect from 'react-select'
+import {
+  ClassicSelectTheme,
+  getClassicSelectStyles
+} from '../SearchInput/SearchStyles'
 
 class Select extends Component {
   render () {
@@ -17,7 +17,7 @@ class Select extends Component {
         placeholder={field.placeholder}
         value={options.find(item => item.value === field.value)}
         onChange={option => form.setFieldValue(field.name, option.value)}
-        styles={ClassicSelectStyles}
+        styles={getClassicSelectStyles(form.errors[field.name])}
         theme={ClassicSelectTheme}
         {...props}
       />

@@ -54,11 +54,16 @@ export const SearchBarStyles = {
   })
 }
 
-export const ClassicSelectStyles = {
+export const getClassicSelectStyles = (error) => ({
   control: (b, s) =>
     styleSurcharger(b, {
       borderRadius: 12,
-      height: 40
+      height: 40,
+      borderWidth: '2.5px',
+      boxShadow: 'none',
+      borderColor: s.isFocused ? (
+        COLORS.primary
+      ) : error ? COLORS.error : 'transparent'
     }),
   indicatorSeparator: b =>
     styleSurcharger(b, {
@@ -75,7 +80,7 @@ export const ClassicSelectStyles = {
     paddding: 0,
     background: COLORS.textLight
   })
-}
+})
 
 export const ClassicSelectTheme = theme => ({
   ...theme,

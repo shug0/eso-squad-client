@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Formik, Field } from 'formik'
 import { userFormValidationSchema } from './schemas'
 import Select from '../components/Select/Select'
-import cs from 'classnames'
 import { PLATFORM_INPUT, REGIONS_INPUT, ROLES_INPUT } from '../constants/constants'
 import { getCookieUser } from '../helpers/user'
+import Input from '../components/Input/Input'
 
 class UserForm extends Component {
   getInitialValue = () => {
@@ -27,7 +27,7 @@ class UserForm extends Component {
         initialValues={this.getInitialValue()}
         validationSchema={userFormValidationSchema}
         onSubmit={handleSubmit}
-        render={({ handleSubmit, errors }) => {
+        render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit}>
               <div className='InputWrapper'>
@@ -35,8 +35,7 @@ class UserForm extends Component {
                   Account Pseudo*
                 </label>
                 <Field
-                  className={cs('Input', { error: errors['pseudo'] })}
-                  type='text'
+                  component={Input}
                   id='pseudo'
                   name='pseudo'
                 />
@@ -85,14 +84,22 @@ class UserForm extends Component {
                   <label className='Label' htmlFor='lvl'>
                     LVL*
                   </label>
-                  <Field className={cs('Input', { error: errors['lvl'] })} type='text' id='lvl' name='lvl' />
+                  <Field
+                    component={Input}
+                    id='lvl'
+                    name='lvl'
+                  />
                 </span>
 
                 <span>
                   <label className='Label' htmlFor='cp'>
                     CP
                   </label>
-                  <Field className={cs('Input', { error: errors['cp'] })} type='text' id='cp' name='cp' />
+                  <Field
+                    component={Input}
+                    id='cp'
+                    name='cp'
+                  />
                 </span>
               </div>
 
