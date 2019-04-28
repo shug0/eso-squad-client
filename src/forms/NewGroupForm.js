@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import { Formik, Field } from 'formik'
+import Effect from '../forms/Effect'
 import { newGroupFormValidationSchema } from './schemas'
+import events from '../constants/data/eventsMap'
 import Select from '../components/Select/Select'
 import cs from 'classnames'
-import { EVENTS_OPTIONS, PLATFORM_INPUT, REGIONS_INPUT } from '../constants/constants'
+import {
+  EVENTS_OPTIONS,
+  PLATFORM_INPUT,
+  REGIONS_INPUT,
+  GROUP_TEMPLATE,
+  ROLE_DD_NUM,
+  ROLE_TANK_NUM, ROLE_HEAL_NUM
+} from '../constants/constants'
 import { getCookieUser } from '../helpers/user'
 
 class NewGroupForm extends Component {
@@ -12,21 +21,42 @@ class NewGroupForm extends Component {
     return {
       host: cookieUser.pseudo || '',
       platform: cookieUser.platform || '',
-      region: cookieUser.region || ''
+      region: cookieUser.region || '',
+      [ROLE_DD_NUM]: 0,
+      [ROLE_TANK_NUM]: 0,
+      [ROLE_HEAL_NUM]: 0
     }
   };
 
-  render () {
-    const { handleSubmit } = this.props
+  state = {
+    initialValue: this.getInitialValue()
+  }
 
+  updateInitialValue = (values) => {
+    const type = events[values.event].type
+    this.setState({
+      initialValue: {
+        ...values,
+        ...GROUP_TEMPLATE[type]
+      }
+    })
+  }
+
+  render () {
     return (
       <Formik
-        initialValues={this.getInitialValue()}
+        initialValues={this.state.initialValue}
         validationSchema={newGroupFormValidationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={this.props.handleSubmit}
+        enableReinitialize
         render={({ handleSubmit, errors }) => {
           return (
             <form onSubmit={handleSubmit}>
+              <Effect onChange={({ values: currentValues }, { values: nextValues }) => {
+                if (currentValues.event !== nextValues.event) {
+                  this.updateInitialValue(nextValues)
+                }
+              }} />
               <div className='InputWrapper'>
                 <label className='Label' htmlFor='host'>
                   Host

@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import './NewGroupPage.scss'
 import { withRouter } from 'react-router-dom'
-import { setCookieUser } from '../../helpers/user'
 import Header from '../../components/Header/Header'
-import NewGroupForm from "../../forms/NewGroupForm";
+import NewGroupForm from '../../forms/NewGroupForm'
 
 class NewGroupPage extends Component {
-  handleSubmit = values => {
-    const { history } = this.props
-
-    // history.push('/')
-    console.log("SUBMITED !")
+  handleSubmit = () => {
+    console.log('SUBMITED !')
   };
 
   render () {

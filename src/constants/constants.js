@@ -9,6 +9,10 @@ export const ROLE_DD = 'DD'
 export const ROLE_TANK = 'TANK'
 export const ROLE_HEAL = 'HEAL'
 
+export const ROLE_DD_NUM = 'dd_number'
+export const ROLE_TANK_NUM = 'tank_number'
+export const ROLE_HEAL_NUM = 'heal_number'
+
 export const ROLES = [ROLE_DD, ROLE_TANK, ROLE_HEAL]
 
 export const ROLES_INPUT = ROLES.map(key => ({
@@ -36,3 +40,19 @@ export const REGIONS_INPUT = REGIONS.map(key => ({
   label: key,
   value: key
 }))
+
+export const GROUP_DUNGEON = 'group_dungeon'
+export const GROUP_TRIAL = 'trial'
+
+export const GROUP_TEMPLATE = {
+  [GROUP_DUNGEON]: {
+    [ROLE_DD_NUM]: 2,
+    [ROLE_TANK_NUM]: 1,
+    [ROLE_HEAL_NUM]: 1
+  },
+  [GROUP_TRIAL]: {
+    [ROLE_DD_NUM]: 8,
+    [ROLE_TANK_NUM]: 2,
+    [ROLE_HEAL_NUM]: 2
+  }
+}

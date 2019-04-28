@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import {PLATFORM, REGIONS, ROLES} from '../constants/constants'
+import { PLATFORM, REGIONS, ROLES } from '../constants/constants'
 
 export const userFormValidationSchema = Yup.object().shape({
   pseudo: Yup.string()
@@ -32,5 +32,10 @@ export const newGroupFormValidationSchema = Yup.object().shape({
     .required('Select your platform'),
   region: Yup.string()
     .oneOf(REGIONS)
-    .required('Select your region')
+    .required('Select your region'),
+  event: Yup.string()
+    .required('Select a event'),
+  dd_number: Yup.number().required('Fill the DD number'),
+  tank_number: Yup.number().required('Fill the tank number'),
+  heal_number: Yup.number().required('Fill the heal number')
 })
