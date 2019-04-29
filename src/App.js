@@ -5,9 +5,7 @@ import NewGroupPage from './pages/NewGroupPage/NewGroupPage'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { userFormValidationSchema } from './forms/schemas'
 import { getCookieUser } from './helpers/user'
-
-// import io from 'socket.io-client'
-// const socket = io.connect('http://localhost:8080')
+import GroupPage from './pages/GroupPage/GroupPage'
 
 class App extends Component {
   checkUserCookies = () => userFormValidationSchema.isValidSync(getCookieUser())
@@ -29,6 +27,7 @@ class App extends Component {
           />
           <Route path='/setup' component={StartPage} />
           <Route path='/new' component={NewGroupPage} />
+          <Route path='/group' component={GroupPage} />
         </main>
       </Router>
     )
