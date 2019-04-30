@@ -8,6 +8,7 @@ import {
 class Select extends Component {
   render () {
     const { options, field, form, ...props } = this.props
+    const showError = form.touched[field.name] && form.errors[field.name]
 
     return (
       <ReactSelect
@@ -17,7 +18,7 @@ class Select extends Component {
         placeholder={field.placeholder}
         value={options.find(item => item.value === field.value)}
         onChange={option => form.setFieldValue(field.name, option.value)}
-        styles={getClassicSelectStyles(form.errors[field.name])}
+        styles={getClassicSelectStyles(showError)}
         theme={ClassicSelectTheme}
         {...props}
       />
