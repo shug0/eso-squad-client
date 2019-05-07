@@ -2,32 +2,19 @@ import React, { Component } from 'react'
 import StartPage from './pages/StartPage/StartPage'
 import HomePage from './pages/HomePage/HomePage'
 import NewGroupPage from './pages/NewGroupPage/NewGroupPage'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import { userFormValidationSchema } from './forms/schemas'
-import { getCookieUser } from './helpers/user'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import GroupPage from './pages/GroupPage/GroupPage'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 
 class App extends Component {
-  checkUserCookies = () => userFormValidationSchema.isValidSync(getCookieUser())
-
   render () {
     return (
       <Router>
         <main className='Wrapper'>
-          <Route
-            exact
-            path='/'
-            render={() =>
-              !this.checkUserCookies() ? (
-                <Redirect to='/setup' />
-              ) : (
-                <HomePage />
-              )
-            }
-          />
+          <PrivateRoute exact path='/' component={HomePage} />
+          <PrivateRoute path='/new' component={NewGroupPage} />
+          <PrivateRoute path='/group' component={GroupPage} />
           <Route path='/setup' component={StartPage} />
-          <Route path='/new' component={NewGroupPage} />
-          <Route path='/group' component={GroupPage} />
         </main>
       </Router>
     )
