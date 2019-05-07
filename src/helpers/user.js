@@ -10,6 +10,7 @@ import {
 const getUserID = (user) => Object.values(user).join('-')
 
 export const getCookieUser = () => ({
+  id: Cookies.get(USER_ID),
   pseudo: Cookies.get(USER_PSEUDO),
   role: Cookies.get(USER_ROLE),
   lvl: Cookies.get(USER_LVL),

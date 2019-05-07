@@ -24,15 +24,7 @@ export const userFormValidationSchema = Yup.object().shape({
 })
 
 export const newGroupFormValidationSchema = Yup.object().shape({
-  host: Yup.string()
-    .required()
-    .max(40, '🤔'),
-  platform: Yup.string()
-    .oneOf(PLATFORM)
-    .required('Select your platform'),
-  region: Yup.string()
-    .oneOf(REGIONS)
-    .required('Select your region'),
+  host: userFormValidationSchema,
   event: Yup.string()
     .required('Select a event'),
   dd_number: Yup.number().required('Fill the DD number'),

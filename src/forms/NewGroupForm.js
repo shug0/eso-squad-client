@@ -6,8 +6,6 @@ import events from '../constants/data/eventsMap'
 import Select from '../components/Select/Select'
 import {
   EVENTS_OPTIONS,
-  PLATFORM_INPUT,
-  REGIONS_INPUT,
   GROUP_TEMPLATE,
   ROLE_DD_NUM,
   ROLE_TANK_NUM, ROLE_HEAL_NUM
@@ -15,13 +13,12 @@ import {
 import { getCookieUser } from '../helpers/user'
 import Input from '../components/Input/Input'
 
+// @TODO NewGroupForm : Add the "Veteran", "Hard Mode" Checkbox in form
 class NewGroupForm extends Component {
   getInitialValue = () => {
     const cookieUser = getCookieUser()
     return {
-      host: cookieUser.pseudo || '',
-      platform: cookieUser.platform || '',
-      region: cookieUser.region || '',
+      host: cookieUser,
       [ROLE_DD_NUM]: 0,
       [ROLE_TANK_NUM]: 0,
       [ROLE_HEAL_NUM]: 0
@@ -32,6 +29,7 @@ class NewGroupForm extends Component {
     initialValue: this.getInitialValue()
   }
 
+  // Allow us to re-fill the default value with another
   updateInitialValue = (values) => {
     const type = events[values.event].type
     this.setState({
@@ -57,44 +55,6 @@ class NewGroupForm extends Component {
                   this.updateInitialValue(nextValues)
                 }
               }} />
-              <div className='InputWrapper'>
-                <label className='Label' htmlFor='host'>
-                  Host
-                </label>
-                <Field
-                  id='host'
-                  name='host'
-                  component={Input}
-                  disabled
-                />
-              </div>
-
-              <div className='InputWrapper Row Gap'>
-                <span>
-                  <label className='Label' htmlFor='platform'>
-                    Platform
-                  </label>
-                  <Field
-                    id='platform'
-                    name='platform'
-                    options={PLATFORM_INPUT}
-                    component={Select}
-                  />
-                </span>
-
-                <span>
-                  <label className='Label' htmlFor='region'>
-                    Region
-                  </label>
-                  <Field
-                    id='region'
-                    name='region'
-                    options={REGIONS_INPUT}
-                    component={Select}
-                  />
-                </span>
-              </div>
-
               <div className='InputWrapper'>
                 <label className='Label' htmlFor='event'>
                   Event
