@@ -13,5 +13,7 @@ export const post = (url, payload) => (
 
 export default {
   post,
-  get: fetch
+  get: (url) => fetch(url)
+    .then(response => response.text())
+    .then((data) => data ? JSON.parse(data) : {})
 }
