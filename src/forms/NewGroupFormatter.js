@@ -8,8 +8,5 @@ export default (values) => ({
     [ROLE_TANK]: values[ROLE_TANK_NUM]
   },
   host: values.host,
-  platform: values.host.platform,
-  region: values.host.region,
-  created: Date.now(),
-  players: [values.host]
+  created: Date.now()
 })
