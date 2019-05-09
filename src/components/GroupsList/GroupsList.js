@@ -55,7 +55,9 @@ class GroupsList extends Component {
           {!loading && !!eventsKeys.length && eventsKeys.map(key => (
             <GroupCard
               key={events[key].eventId}
+              id={key}
               eventId={events[key].eventId}
+              playersTemplate={events[key].players_template}
             />
           ))}
         </div>
