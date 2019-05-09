@@ -13,7 +13,7 @@ class App extends Component {
         <main className='Wrapper'>
           <PrivateRoute exact path='/' component={HomePage} />
           <PrivateRoute path='/new' component={NewGroupPage} />
-          <PrivateRoute path='/group' component={GroupPage} />
+          <PrivateRoute path='/group/:groupId' component={GroupPage} />
           <Route path='/setup' component={StartPage} />
         </main>
       </Router>

@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom'
+import { string, shape } from 'prop-types'
 import Header from '../../components/Header/Header'
+import './GroupPage.scss'
 import io from 'socket.io-client'
 
 class GroupPage extends PureComponent {
@@ -26,14 +29,26 @@ class GroupPage extends PureComponent {
     socket.disconnect()
   }
 
+  static propTypes = {
+    match: shape({
+      params: shape({
+        groupId: string.isRequired
+      })
+    })
+  }
+
   render () {
+    const { params } = this.props.match
     return (
       <>
         <Header />
-        <h2>Welcome </h2>
+        <section className='GroupPage'>
+          <h2>Welcome {params.groupId}</h2>
+
+        </section>
       </>
     )
   }
 }
 
-export default GroupPage
+export default withRouter(GroupPage)
