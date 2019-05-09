@@ -10,6 +10,11 @@ html,
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 body {
   color: $textMedium;
   font-family: "Open Sans", sans-serif;
