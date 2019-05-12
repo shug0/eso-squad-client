@@ -1,54 +1,40 @@
 import React, { PureComponent } from 'react'
-import { withRouter } from 'react-router-dom'
-import { string, shape } from 'prop-types'
+import { objectOf, string } from 'prop-types'
 import Header from '../../components/Header/Header'
 import './GroupPage.scss'
-import io from 'socket.io-client'
+import playerPropsType from '../../constants/types/player.type'
+
+const Player = ({ player }) => {
+  return (
+    <div>{player.pseudo}</div>
+  )
+}
+
+Player.propTypes = { player: playerPropsType }
 
 class GroupPage extends PureComponent {
-  state = {
-    socket: io('http://localhost:8080')
-  }
-
-  componentDidMount () {
-    const { socket } = this.state
-
-    socket.nsp = '/test'
-
-    socket.on('connect', () => {
-      console.log('connected')
-    })
-
-    socket.on('disconnect', (reason) => {
-      console.log('disconnected due to ', reason)
-    })
-  }
-
-  componentWillUnmount () {
-    const { socket } = this.state
-    socket.disconnect()
-  }
-
   static propTypes = {
-    match: shape({
-      params: shape({
-        groupId: string.isRequired
-      })
-    })
+    players: objectOf(string)
   }
 
   render () {
-    const { params } = this.props.match
+    const { players } = this.props
+    console.log('Players updated', players)
+
+    const playersKeys = Object.keys(players)
+
     return (
       <>
         <Header />
         <section className='GroupPage'>
-          <h2>Welcome {params.groupId}</h2>
-
+          <h2>Socket loading...</h2>
+          {!!playersKeys.length && playersKeys.map(key => (
+            <Player key={key} player={JSON.parse(players[key])} />
+          ))}
         </section>
       </>
     )
   }
 }
 
-export default withRouter(GroupPage)
+export default GroupPage

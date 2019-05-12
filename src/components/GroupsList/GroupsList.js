@@ -36,8 +36,6 @@ class GroupsList extends Component {
     const { events, loading } = this.state
     const eventsKeys = Object.keys(events)
 
-    console.log(events)
-
     return (
       <section className='GroupList'>
         <header className='GroupList__header'>
