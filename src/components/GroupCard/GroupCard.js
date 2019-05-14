@@ -4,8 +4,9 @@ import sum from 'lodash/sum'
 import './GroupCard.scss'
 import { string, object } from 'prop-types'
 import events from '../../constants/data/eventsMap'
-import { PlayersIcons } from '../Icons'
+import { PlayersIcons, DDIcon, HEALIcon, TANKIcon } from '../Icons'
 import { COLORS } from '../../constants/theme'
+import {ROLE_DD, ROLE_HEAL, ROLE_TANK} from "../../constants/constants";
 
 class GroupCard extends Component {
   getImgById = (id) => {
@@ -49,8 +50,19 @@ class GroupCard extends Component {
               <h3 className='GroupCard__header__title'>{events[eventId].name}</h3>
             </div>
           </header>
-          <div className='GroupCard__content'>
-            Veteran
+          <div className='GroupCard__roles'>
+            <div className='GroupCard__roles__item'>
+              <DDIcon />
+              {playersTemplate[ROLE_DD]}
+            </div>
+            <div className='GroupCard__roles__item'>
+              <HEALIcon />
+              {playersTemplate[ROLE_HEAL]}
+            </div>
+            <div className='GroupCard__roles__item'>
+              <TANKIcon />
+              {playersTemplate[ROLE_TANK]}
+            </div>
           </div>
         </article>
       </Link>
