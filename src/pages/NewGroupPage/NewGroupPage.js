@@ -12,9 +12,9 @@ class NewGroupPage extends Component {
   handleSubmit = (values) => {
     const { history } = this.props
     const event = NewGroupFormatter(values)
-    api.post(API_GROUPS, event).then(res => {
-      if (res.groupKey) {
-        history.push(`${ROUTE_GROUP}/${res.groupKey}`)
+    api.post(API_GROUPS, event).then(({ data }) => {
+      if (data.groupKey) {
+        history.push(`${ROUTE_GROUP}/${data.groupKey}`)
       }
     })
   };

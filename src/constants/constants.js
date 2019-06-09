@@ -5,9 +5,9 @@ export const EVENTS_OPTIONS = dungeonsData.map(dungeon => ({
   value: dungeon.id
 }))
 
-export const ROLE_DD = 'DD'
-export const ROLE_TANK = 'TANK'
-export const ROLE_HEAL = 'HEAL'
+export const ROLE_DD = 'dd'
+export const ROLE_TANK = 'tank'
+export const ROLE_HEAL = 'heal'
 
 export const ROLE_DD_NUM = 'dd_number'
 export const ROLE_TANK_NUM = 'tank_number'
@@ -30,13 +30,13 @@ export const USER_ID = 'USER_ID'
 
 export const USER_COOKIES = [USER_CP, USER_LVL, USER_ROLE, USER_PSEUDO, USER_PLATFORM, USER_REGION, USER_ID]
 
-export const PLATFORM = ['PC', 'XBOX', 'PS4']
+export const PLATFORM = ['pc', 'xbox', 'ps4']
 export const PLATFORM_INPUT = PLATFORM.map(key => ({
   label: key,
   value: key
 }))
 
-export const REGIONS = ['EU', 'NA']
+export const REGIONS = ['eu', 'na']
 export const REGIONS_INPUT = REGIONS.map(key => ({
   label: key,
   value: key

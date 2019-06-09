@@ -19,7 +19,7 @@ class GroupsList extends Component {
   fetchGroups = (search) => {
     this.setState({ loading: true })
     api.get(`${API_GROUPS}/${search}`)
-      .then(events => this.setState({ events, loading: false }))
+      .then(({ data }) => this.setState({ events: data, loading: false }))
   }
 
   componentDidMount () {
