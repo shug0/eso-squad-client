@@ -5,6 +5,7 @@ import NewGroupPage from './pages/NewGroupPage/NewGroupPage'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import GroupPageContainer from './pages/GroupPage/GroupPageContainer'
+import { ROUTE_GROUP, ROUTE_NEW, ROUTE_SETUP } from './constants/routes'
 
 class App extends Component {
   render () {
@@ -12,9 +13,9 @@ class App extends Component {
       <Router>
         <main className='Wrapper'>
           <PrivateRoute exact path='/' component={HomePage} />
-          <PrivateRoute path='/new' component={NewGroupPage} />
-          <PrivateRoute path='/group/:groupId' component={GroupPageContainer} />
-          <Route path='/setup' component={StartPage} />
+          <PrivateRoute path={`${ROUTE_NEW}`} component={NewGroupPage} />
+          <PrivateRoute path={`${ROUTE_GROUP}/:groupId`} component={GroupPageContainer} />
+          <Route path={`${ROUTE_SETUP}`} component={StartPage} />
         </main>
       </Router>
     )
