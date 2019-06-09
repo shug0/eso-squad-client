@@ -5,25 +5,10 @@ import './GroupCard.scss'
 import { string, object } from 'prop-types'
 import events from '../../constants/data/eventsMap'
 import { PlayersIcons, DDIcon, HEALIcon, TANKIcon } from '../Icons'
-import { COLORS } from '../../constants/theme'
-import {ROLE_DD, ROLE_HEAL, ROLE_TANK} from "../../constants/constants";
+import { ROLE_DD, ROLE_HEAL, ROLE_TANK } from '../../constants/constants'
+import { getImgById, getHeaderStyles } from '../../helpers/pictures'
 
 class GroupCard extends Component {
-  getImgById = (id) => {
-    const path =
-      `${process.env.PUBLIC_URL}/assets/illustrations/low/${id}.jpg`
-        .replace('-veteran', '')
-        .replace(/(-i.jpg)|(-ii.jpg)/, '.jpg')
-
-    return path
-  }
-
-  getHeaderStyles = (url) => ({
-    backgroundImage: `url(${url})`,
-    backgroundSize: 'cover',
-    backgroundColor: COLORS.backgroundDark
-  })
-
   static propTypes = {
     id: string.isRequired,
     eventId: string.isRequired,
@@ -32,8 +17,8 @@ class GroupCard extends Component {
 
   render () {
     const { eventId, playersTemplate, id } = this.props
-    const bgPath = this.getImgById(eventId)
-    const bgStyles = this.getHeaderStyles(bgPath)
+    const bgPath = getImgById(eventId)
+    const bgStyles = getHeaderStyles(bgPath)
 
     const playersInGroup = 0
     const playerLimit = sum(Object.values(playersTemplate))

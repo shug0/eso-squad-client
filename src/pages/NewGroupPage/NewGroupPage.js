@@ -6,12 +6,16 @@ import NewGroupForm from '../../forms/NewGroupForm'
 import api from '../../helpers/api'
 import { API_GROUPS } from '../../constants/api'
 import NewGroupFormatter from '../../forms/NewGroupFormatter'
+import { ROUTE_GROUP } from '../../constants/routes'
 
 class NewGroupPage extends Component {
   handleSubmit = (values) => {
+    const { history } = this.props
     const event = NewGroupFormatter(values)
     api.post(API_GROUPS, event).then(res => {
-      console.log('Group properly created')
+      if (res.groupKey) {
+        history.push(`${ROUTE_GROUP}/${res.groupKey}`)
+      }
     })
   };
 

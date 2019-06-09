@@ -3,4 +3,4 @@ export const PLAYERS_NAMESPACE = 'players'
 
 // EVENTS
 export const EVENT_USER_JOIN = 'USER_JOIN'
-export const EVENT_GROUP_UPDATE = 'EVENT_GROUP_UPDATE'
+export const EVENT_PLAYERS_UPDATE = 'EVENT_PLAYERS_UPDATE'

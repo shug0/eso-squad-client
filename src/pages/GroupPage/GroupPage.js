@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-import { objectOf, string } from 'prop-types'
+import { objectOf, string, object } from 'prop-types'
 import Header from '../../components/Header/Header'
 import './GroupPage.scss'
 import playerPropsType from '../../constants/types/player.type'
+// import { getHeaderStyles, getImgById } from '../../helpers/pictures'
 
 const Player = ({ player }) => {
   return (
@@ -14,20 +15,27 @@ Player.propTypes = { player: playerPropsType }
 
 class GroupPage extends PureComponent {
   static propTypes = {
+    group: object,
     players: objectOf(string)
   }
 
   render () {
     const { players } = this.props
+    // const { group, players } = this.props
     console.log('Players updated', players)
 
     const playersKeys = Object.keys(players)
 
+    // const bgPath = getImgById(group.eventId)
+    // const bgStyles = getHeaderStyles(bgPath)
+
     return (
       <>
         <Header />
-        <section className='GroupPage'>
-          <h2>Socket loading...</h2>
+        <section className='GroupPage Card Appear'>
+          <header>
+            Hello guys
+          </header>
           {!!playersKeys.length && playersKeys.map(key => (
             <Player key={key} player={JSON.parse(players[key])} />
           ))}

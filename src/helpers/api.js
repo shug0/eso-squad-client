@@ -9,6 +9,8 @@ export const post = (url, payload) => (
     },
     body: JSON.stringify(payload)
   })
+    .then(response => response.text())
+    .then((data) => data ? JSON.parse(data) : {})
 )
 
 export default {

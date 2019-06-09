@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import GroupPage from './GroupPage'
 import io from 'socket.io-client'
 import { SERVER_URL } from '../../constants/api'
-import { EVENT_USER_JOIN, PLAYERS_NAMESPACE, EVENT_GROUP_UPDATE } from '../../constants/sockets'
+import { EVENT_USER_JOIN, PLAYERS_NAMESPACE, EVENT_PLAYERS_UPDATE } from '../../constants/sockets'
 import { getCookieUser } from '../../helpers/user'
 import { shape, string } from 'prop-types'
 
@@ -32,7 +32,7 @@ class GroupPageContainer extends PureComponent {
       // Send current user data
       socket.emit(EVENT_USER_JOIN, { user: currentUser, groupId })
       // Catch group update event
-      socket.on(EVENT_GROUP_UPDATE, data => (
+      socket.on(EVENT_PLAYERS_UPDATE, data => (
         this.setState({ players: data })
       ))
     })
