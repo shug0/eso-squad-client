@@ -22,7 +22,8 @@ class GroupPage extends PureComponent {
   render () {
     const { players } = this.props
     // const { group, players } = this.props
-    console.log('Players updated', players)
+    // console.log('Players updated', players)
+    // console.log('Current group', group)
 
     const playersKeys = Object.keys(players)
 
