@@ -6,8 +6,9 @@ import {
   USER_ROLE,
   USER_ID
 } from '../constants/constants'
+import Player from "../constants/models/Player";
 
-const getUserID = (user) => Object.values(user).join('-')
+const getUserID = (user: Player) => Object.values(user).join('-')
 
 export const getCookieUser = () => ({
   id: Cookies.get(USER_ID),
@@ -19,7 +20,7 @@ export const getCookieUser = () => ({
   region: Cookies.get(USER_REGION)
 })
 
-export const setCookieUser = user => {
+export const setCookieUser = (user: Player) => {
   Cookies.set(USER_PSEUDO, user.pseudo)
   Cookies.set(USER_ROLE, user.role)
   Cookies.set(USER_LVL, user.lvl)

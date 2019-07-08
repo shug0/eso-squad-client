@@ -1,50 +1,50 @@
 import { COLORS } from '../../constants/theme'
 
-const styleSurcharger = (base, styles) => ({
+const styleSurcharger = (base: any, styles: any) => ({
   ...base,
   ...styles
 })
 
 export const SearchBarStyles = {
-  control: b =>
+  control: (b: any) =>
     styleSurcharger(b, {
       padding: '0.5rem',
       borderRadius: 50
     }),
-  indicatorSeparator: b =>
+  indicatorSeparator: (b: any) =>
     styleSurcharger(b, {
       width: 0
     }),
-  multiValue: b =>
+  multiValue: (b: any) =>
     styleSurcharger(b, {
       padding: '0.3rem',
       borderRadius: 50
     }),
-  multiValueLabel: b =>
+  multiValueLabel: (b: any) =>
     styleSurcharger(b, {
       fontSize: '0.8rem'
     }),
-  multiValueRemove: b =>
+  multiValueRemove: (b: any) =>
     styleSurcharger(b, {
       borderRadius: 50
     }),
-  option: (base, state) => ({
+  option: (base: any, state: any) => ({
     ...base,
     background: state.isFocused
       ? COLORS.backgroundMedium
       : COLORS.backgroundDark
   }),
-  menu: base => ({
+  menu: (base: any) => ({
     ...base,
     marginTop: 10,
     paddding: 0,
     background: COLORS.backgroundDark
   }),
-  menuList: base => ({
+  menuList: (base: any) => ({
     ...base,
     paddding: 0
   }),
-  placeholder: base => ({
+  placeholder: (base: any) => ({
     ...base,
     overflow: 'hidden',
     whiteSpace: 'nowrap',
@@ -54,8 +54,8 @@ export const SearchBarStyles = {
   })
 }
 
-export const getClassicSelectStyles = (error) => ({
-  control: (b, s) =>
+export const getClassicSelectStyles = (error: boolean) => ({
+  control: (b: any, s: any) =>
     styleSurcharger(b, {
       borderRadius: 12,
       height: 40,
@@ -65,16 +65,16 @@ export const getClassicSelectStyles = (error) => ({
         COLORS.primary
       ) : error ? COLORS.error : 'transparent'
     }),
-  indicatorSeparator: b =>
+  indicatorSeparator: (b: any) =>
     styleSurcharger(b, {
       width: 0
     }),
-  option: (base, state) => ({
+  option: (base: any, state: any) => ({
     ...base,
     color: state.isFocused ? COLORS.textLight : COLORS.textDark,
     background: state.isFocused ? COLORS.primary : COLORS.textLight
   }),
-  menu: base => ({
+  menu: (base: any) => ({
     ...base,
     marginTop: 10,
     paddding: 0,
@@ -82,7 +82,7 @@ export const getClassicSelectStyles = (error) => ({
   })
 })
 
-export const ClassicSelectTheme = theme => ({
+export const ClassicSelectTheme = (theme: any) => ({
   ...theme,
   borderRadius: 0,
   colors: {

@@ -1,15 +1,20 @@
-import React from 'react'
-import { connect } from 'formik'
+import React from "react";
+import { connect } from "formik";
 
-class Effect extends React.Component {
-  componentWillReceiveProps (nextProps) {
-    const { values, touched, errors, isSubmitting } = this.props.formik
+interface P {
+  onChange: Function;
+  formik?: any;
+}
+
+class Effect extends React.Component<P> {
+  componentWillReceiveProps(nextProps: any) {
+    const { values, touched, errors, isSubmitting } = this.props.formik;
     const {
       values: nextValues,
       touched: nextTouched,
       errors: nextErrors,
       isSubmitting: nextIsSubmitting
-    } = nextProps.formik
+    } = nextProps.formik;
     if (nextProps.formik !== this.props.formik) {
       this.props.onChange(
         {
@@ -24,13 +29,14 @@ class Effect extends React.Component {
           errors: nextErrors,
           isSubmitting: nextIsSubmitting
         }
-      )
+      );
     }
   }
 
-  render () {
-    return null
+  render() {
+    return null;
   }
 }
 
-export default connect(Effect)
+// @ts-ignore
+export default connect(Effect);

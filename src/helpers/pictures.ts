@@ -1,6 +1,6 @@
 import { COLORS } from '../constants/theme'
 
-export const getImgById = (id) => {
+export const getImgById = (id: string) => {
   const path =
     `${process.env.PUBLIC_URL}/assets/illustrations/low/${id}.jpg`
       .replace('-veteran', '')
@@ -9,7 +9,7 @@ export const getImgById = (id) => {
   return path
 }
 
-export const getHeaderStyles = (url) => ({
+export const getHeaderStyles = (url: string) => ({
   backgroundImage: `url(${url})`,
   backgroundSize: 'cover',
   backgroundColor: COLORS.backgroundDark

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import './StartPage.scss'
 import UserForm from '../../forms/UserForm'
-import { withRouter } from 'react-router-dom'
+import {RouteComponentProps, withRouter} from 'react-router-dom'
 import { setCookieUser } from '../../helpers/user'
+import Player from "../../constants/models/Player";
 
-class StartPage extends Component {
-  handleSubmit = values => {
+class StartPage extends Component<RouteComponentProps> {
+  handleSubmit = (values: Player) => {
     const { history } = this.props
     setCookieUser(values)
     history.push('/')

@@ -2,23 +2,31 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import sum from 'lodash/sum'
 import './GroupCard.scss'
-import { string, object } from 'prop-types'
-import events from '../../constants/data/eventsMap'
+import _events from '../../constants/data/eventsMap.json'
 import { PlayersIcons, DDIcon, HEALIcon, TANKIcon } from '../Icons'
-import { ROLE_DD, ROLE_HEAL, ROLE_TANK } from '../../constants/constants'
+import {ROLE_DD, ROLE_HEAL, ROLE_TANK} from '../../constants/constants'
 import { getImgById, getHeaderStyles } from '../../helpers/pictures'
 
-class GroupCard extends Component {
-  static propTypes = {
-    id: string.isRequired,
-    eventId: string.isRequired,
-    playersTemplate: object.isRequired
-  }
+interface GroupCardProps {
+  id: string,
+  eventId: string,
+  playersTemplate: {[key: string]: string},
+}
 
+interface Event {
+  id: string,
+  name: string,
+  type: string,
+}
+
+const events: {[key: string]: Event} = _events;
+
+class GroupCard extends Component<GroupCardProps> {
   render () {
-    const { eventId, playersTemplate, id } = this.props
+    const { eventId, playersTemplate, id }: GroupCardProps = this.props
     const bgPath = getImgById(eventId)
     const bgStyles = getHeaderStyles(bgPath)
+    console.log(playersTemplate)
 
     const playersInGroup = 0
     const playerLimit = sum(Object.values(playersTemplate))
