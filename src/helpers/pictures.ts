@@ -1,8 +1,8 @@
 import { COLORS } from '../constants/theme'
 
-export const getImgById = (id: string) => {
+export const getImgById = (id: string, quality = 'low') => {
   const path =
-    `${process.env.PUBLIC_URL}/assets/illustrations/low/${id}.jpg`
+    `${process.env.PUBLIC_URL}/assets/illustrations/${quality}/${id}.jpg`
       .replace('-veteran', '')
       .replace(/(-i.jpg)|(-ii.jpg)/, '.jpg')
 

@@ -63,7 +63,7 @@ class GroupPageContainer extends PureComponent<P> {
     this.setState({ loading: true });
     api
       .get(`${API_GROUP}/${groupId}`)
-      .then(({ data }) => this.setState({ group: data, loading: false }));
+      .then(({ data }) => this.setState({ group: data[groupId], loading: false }));
   };
 
   componentWillUnmount() {

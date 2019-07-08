@@ -2,4 +2,28 @@
 
 .GroupPage {
   margin-top: 150px;
+  overflow: hidden;
+  padding-bottom: 3rem;
+
+  &__header {
+    margin: -2rem -2rem 1.5rem;
+    padding: 2rem;
+    background-position: center;
+    height: 150px;
+
+    &__title {
+      font-size: 3rem;
+      color: white;
+    }
+  }
+
+  &__Players {
+    display: flex;
+
+    &__Card {
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      border: 1px solid grey;
+    }
+  }
 }
