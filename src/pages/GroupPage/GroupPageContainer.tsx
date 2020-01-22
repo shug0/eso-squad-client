@@ -49,10 +49,13 @@ class GroupPageContainer extends PureComponent<P> {
       socket.emit(EVENT_USER_JOIN, { user: currentUser, groupId });
       // Catch group update event
       socket.on(EVENT_PLAYERS_UPDATE, (data: { [key: string]: string }) => {
-        let players: any = {};
-        Object.keys(data).map((key: string) => {
-          players[key] = JSON.parse(data[key]);
-        });
+        const players: Players = Object.keys(data).reduce(
+          (previousValue: Players, key) => {
+            previousValue[key] = JSON.parse(data[key]);
+            return previousValue;
+          },
+          {}
+        );
 
         this.setState({ players });
       });
@@ -63,7 +66,9 @@ class GroupPageContainer extends PureComponent<P> {
     this.setState({ loading: true });
     api
       .get(`${API_GROUP}/${groupId}`)
-      .then(({ data }) => this.setState({ group: data[groupId], loading: false }));
+      .then(({ data }) =>
+        this.setState({ group: data[groupId], loading: false })
+      );
   };
 
   componentWillUnmount() {

@@ -1,24 +1,70 @@
 @import "../../assets/var";
 
 .GroupPage {
-  margin-top: 150px;
+  margin-top: 80px;
   overflow: hidden;
   padding-bottom: 3rem;
 
   &__header {
     margin: -2rem -2rem 1.5rem;
-    padding: 2rem;
     background-position: center;
     height: 150px;
+    color: white;
+    position: relative;
+
+    &__overlay {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.8)
+      );
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &__content {
+      z-index: 1;
+      top: 0;
+      left: 0;
+      padding: 2rem;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
 
     &__title {
       font-size: 3rem;
-      color: white;
+      padding-bottom: 0.5rem;
+    }
+
+    &__date {
+      font-style: italic;
+      font-size: 1rem;
     }
   }
 
-  &__Players {
+  &__Lobby {
     display: flex;
+
+    > * {
+      border: 1px solid red;
+      align-self: stretch;
+    }
+
+    &__tank {
+      flex: 50%;
+    }
+
+    &__heal {
+      flex: 50%;
+    }
+
+    &__dd {
+      flex: 50%;
+    }
 
     &__Card {
       border-radius: 5px;

@@ -1,9 +1,9 @@
 @import "../../assets/var";
 
-
 .GroupCard__link {
   transition: ease all 0.1s;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: none;
     transform: translateY(-5px) scale(1.05);
   }
@@ -32,7 +32,11 @@
       margin-top: 15px;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1) , rgba(0,0,0,0.7));
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.7)
+      );
     }
 
     &__players {
@@ -41,14 +45,14 @@
       }
 
       text-align: right;
-      margin-bottom: auto ;
+      margin-bottom: auto;
       font-family: $fontRubik;
       font-weight: bold;
       padding: 1rem;
     }
 
     &__title {
-      margin-top: auto ;
+      margin-top: auto;
       padding: 1rem;
     }
   }
@@ -68,7 +72,7 @@
     & svg {
       font-size: 1rem;
       color: $textMedium;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
 }

@@ -56,7 +56,7 @@ class GroupsList extends Component<P> {
         </header>
         <div className="GroupList__content">
           {loading && <span>Loading...</span>}
-          {!loading && !groupsKeys.length && <span>Aucun résultat..</span>}
+          {!loading && !groupsKeys.length && <span>No result..</span>}
           {!loading &&
             !!groupsKeys.length &&
             groupsKeys.map((key: string) => (
