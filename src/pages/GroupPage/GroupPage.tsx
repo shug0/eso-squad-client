@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import moment from "moment";
-import Header from "../../components/Header/Header";
 import "./GroupPage.scss";
 import get from "lodash/get";
 import Player, { Players } from "../../constants/models/Player";
@@ -33,6 +32,7 @@ class GroupPage extends PureComponent<P> {
 
     const templateSeats = Object.keys(group.players_template).map(role => (
       <div className={`GroupPage__Lobby__${role}`}>
+        <h3 className="GroupPage__Lobby__role">{role.toUpperCase()}</h3>
         {[...Array(group.players_template[role])].map((key, i) => (
           <PlayerCard key={`${role}-${i}`} role={role} player={null} />
         ))}
@@ -43,7 +43,6 @@ class GroupPage extends PureComponent<P> {
 
     return (
       <>
-        <Header />
         <section className="GroupPage Card Appear">
           <header className="GroupPage__header" style={bgStyles}>
             <div className="GroupPage__header__overlay" />

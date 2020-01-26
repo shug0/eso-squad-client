@@ -12,13 +12,13 @@ class App extends Component {
     return (
       <Router>
         <main className="Wrapper">
+          <Route path={`${ROUTE_SETUP}`} component={StartPage} />
           <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute path={`${ROUTE_NEW}`} component={NewGroupPage} />
           <PrivateRoute
             path={`${ROUTE_GROUP}/:groupId`}
             component={GroupPageContainer}
           />
-          <Route path={`${ROUTE_SETUP}`} component={StartPage} />
         </main>
       </Router>
     );

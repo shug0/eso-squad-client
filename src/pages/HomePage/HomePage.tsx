@@ -1,29 +1,27 @@
-import React, { PureComponent } from 'react'
-import Header from '../../components/Header/Header'
-import SearchInput from '../../components/SearchInput/SearchInput'
-import GroupsList from '../../components/GroupsList/GroupsList'
+import React, { PureComponent } from "react";
+import SearchInput from "../../components/SearchInput/SearchInput";
+import GroupsList from "../../components/GroupsList/GroupsList";
 import SelectItem from "../../constants/models/SelectItem";
 
 class HomePage extends PureComponent {
   state = {
-    search: ''
-  }
+    search: ""
+  };
 
   handleChange = (values: Array<SelectItem>) => {
     this.setState({
-      search: values.map((item) => item.value).join(',')
-    })
-  }
+      search: values.map(item => item.value).join(",")
+    });
+  };
 
-  render () {
+  render() {
     return (
       <>
-        <Header />
         <SearchInput handleChange={this.handleChange} />
         <GroupsList search={this.state.search} />
       </>
-    )
+    );
   }
 }
 
-export default HomePage
+export default HomePage;
