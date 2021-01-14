@@ -8,7 +8,8 @@ import {
 } from "../constants/constants";
 import FormGroup from "../constants/models/FormGroup";
 
-export default (values: FormGroup) => {
+
+const NewGroupFormatter = (values: FormGroup) => {
   return {
     eventId: values.event,
     players_template: {
@@ -19,4 +20,6 @@ export default (values: FormGroup) => {
     host: values.host,
     created: Date.now()
   };
-};
+}
+
+export default NewGroupFormatter

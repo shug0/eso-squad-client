@@ -16,9 +16,13 @@ class Select extends Component<P> {
   render() {
     const { options, field, form, ...props } = this.props;
     const showError = form.touched[field.name] && form.errors[field.name];
+    const handleChange = (option: { value: string }) =>
+        form.setFieldValue(field.name, option.value)
+
 
     return (
       <ReactSelect
+        {...props}
         id={field.name}
         options={options}
         isSearchable={false}
@@ -26,12 +30,9 @@ class Select extends Component<P> {
         value={options.find(
           (item: { value: string }) => item.value === field.value
         )}
-        onChange={(option: { value: string }) =>
-          form.setFieldValue(field.name, option.value)
-        }
+        onChange={handleChange}
         styles={getClassicSelectStyles(showError)}
         theme={ClassicSelectTheme}
-        {...props}
       />
     );
   }

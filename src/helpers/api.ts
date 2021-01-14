@@ -8,7 +8,9 @@ export const get = (url: string) => (
   axios.get(url, { withCredentials: true })
 )
 
-export default {
+const api = {
   post,
   get
 }
+
+export default api

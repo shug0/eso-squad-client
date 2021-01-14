@@ -25,7 +25,6 @@ class GroupCard extends Component<GroupCardProps> {
     const { eventId, playersTemplate, id }: GroupCardProps = this.props;
     const bgPath = getImgById(eventId);
     const bgStyles = getHeaderStyles(bgPath);
-    console.log(playersTemplate);
 
     const playersInGroup = 0;
     const playerLimit = sum(Object.values(playersTemplate));
@@ -45,8 +44,8 @@ class GroupCard extends Component<GroupCardProps> {
             </div>
           </header>
           <div className="GroupCard__roles">
-            {Object.keys(playersTemplate).map(role => (
-              <div className="GroupCard__roles__item">
+            {Object.keys(playersTemplate).map((role,i) => (
+              <div className="GroupCard__roles__item" key={role+i}>
                 {getRoleIcon(role)}
                 {playersTemplate[role]}
               </div>
